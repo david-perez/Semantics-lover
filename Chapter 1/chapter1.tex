@@ -214,13 +214,13 @@ A total function is a function where each element in the domain is mapped to an 
 
 In order to prove this result, we can use structural induction on the shape of the arithmetic expression. First, we check if the property holds for the basis elements:
 \begin{itemize}
-    \item If $a = n$ where $n \in \num$, we have $\A\eval{a}s = \N\eval{n}$ which depends only on $n$ and the function $\N$ which is a total function, so, there is no problem.
-    \item If $a = x$ where $x \in \var$, we have $\A\eval{a}s = s\,x$. $s$ is itself a total function that provides only one result for each variable, so, again, we have only one value.
-\end{itemize}%Assuming that the property holds for
+    \item If $a := n$ where $n \in \num$, we have $\A\eval{a}s = \N\eval{n}$ which depends only on $n$ and the function $\N$ which is a total function, so, there is no problem.
+    \item If $a := x$ where $x \in \var$, we have $\A\eval{a}s = s\,x$. $s$ is itself a total function that provides only one result for each variable, so, again, we have only one value.
+\end{itemize}
 Now, we try to prove it for the composite elements:
 \begin{itemize}
-    \item If $a = a_1 + a_2$ where $a_1, a_2 \in \aexp$, we have $\A\eval{a}s = \A\eval{a_1}s + \A\eval{a_2}s$ and, assuming that the property holds for $a1$ and $a2$, because they are the immediate constituents of $a$, and knowing that the addition is a total function itself, the property holds in this case.
-    \item The proof for $a = a_1 * a_2$ and $a = a_1 - a_2$ is analogous.
+    \item If $a := a_1 + a_2$ where $a_1, a_2 \in \aexp$, we have $\A\eval{a}s = \A\eval{a_1}s + \A\eval{a_2}s$ and, assuming that the property holds for $a1$ and $a2$, because they are the immediate constituents of $a$, and knowing that the addition is a total function itself, the property holds in this case.
+    \item The proof for $a := a_1 * a_2$ and $a := a_1 - a_2$ is analogous.
 \end{itemize}
 \subsection{9}
 Assume that $s\,x = 3$, and determine $\B\eval{\neg(x = 1)}s$.\\
@@ -228,7 +228,16 @@ Assume that $s\,x = 3$, and determine $\B\eval{\neg(x = 1)}s$.\\
 Ok, we have the following situation:
 \begin{itemize}
     \item $\B\eval{(x = 1)}s = \ff$ because, using the third rule, we have that $\A\eval{x} = 1$ and $\A\eval{3} = 3$ and they are not equal.
-    \item $\B\eval{\neg(x = 1)}s$ depends on the evaluation of $\B\eval{(x = 1)}s$ which is $\ff$, so, using the fifth rule we obtain $\B\eval{\neg(x = 1)}s = \Tt$.
+    \item $\B\eval{\neg(x = 1)}s$ depends on the evaluation of $\B\eval{(x = 1)}s$ which is $\ff$, so, using the fifth rule, we obtain $\B\eval{\neg(x = 1)}s = \Tt$.
 \end{itemize}
-%\subsection{10}
+\subsection{10}
+Prove that Table 1.2 defines a total function $\B$ in $\bexp \rightarrow (\state \rightarrow \T)$.\\
+
+We must follow the same steps that we used in exercise 8. For each $b \in \bexp$ and $s \in \state$ we should obtain only one result when we evaluate $b$ in $s$. First, we check the property for the basis elements and then for the composite elements:
+\begin{itemize}
+    \item If $b := true$, we have $\B\eval{b}s = tt$. Obviously, we obtain only one result. The same holds when $b := false$.
+    \item If $b := (a_1 = a_2)$ where $a_1, a_2 \in \aexp$, we must check whether or not $\A\eval{a1}s$ is equal to $\A\eval{a2}s$. Assuming that we have already prove that $\A$ is a total function, we have that the evaluation of $b$ in $s$ has only one result depending on s. We can use the same argument with $\le$.
+    \item If $b = \neg b_1$ where $b_1 \in \bexp$, $\B\eval{b_1}s$ could be $\Tt$ or $\ff$, but only one of them, because we suppose that the property holds for $b_1$. In this case, using the fifth rule, we have that $\B\eval{b}s$ maps to only one value (the opposite of $\B\eval{b_1}s$).
+    \item If $b = b_1 \wedge b_2$ where $b_1, b_2 \in \bexp$, we have $\B\eval{b_1}s = v_1$ and $\B\eval{b_1}s = v_2$ where $v_1$ and $v_2$ belong to $\T$ and are the only values returned by the evaluation of $b_1$ and $b_2$ in $s$. $\B\eval{b}s = \Tt$, if $v_1$ and $v_2$ are both $\Tt$, and $\B\eval{b}s = \ff$ otherwise. In both cases, there is only one possible value.
+\end{itemize}
 \end{document}
