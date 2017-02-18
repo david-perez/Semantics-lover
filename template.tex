@@ -6,6 +6,9 @@
 \usepackage{amsfonts}
 \usepackage{latexsym}
 \usepackage{mathtools}
+\usepackage{ebproof}
+\usepackage{stmaryrd}
+\usepackage[linguistics]{forest}
 \usepackage{anysize}
 %\marginsize{2cm}{2cm}{2cm}{3cm}
 \newcommand\eqdef{\stackrel{\mathclap{\mbox{\tiny{def}}}}{=}}
@@ -15,7 +18,10 @@
 \usepackage{hyperref}
 \usepackage{float}
 \usepackage{verbatim}
+\usepackage[explicit]{titlesec}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+\titleformat{\subsection}{\normalfont\Large\bfseries}{}{0em}{Exercise \thesection.#1}
 
 %\usepackage[a4paper,bindingoffset=0.2in,left=0.8in,right=0.8in,top=1.1in,bottom=1in,footskip=.25in]{geometry}
 
@@ -78,6 +84,17 @@
 \newcommand{\st}[2]{\left\langle#1, #2\right\rangle}
 \newcommand{\ste}[3]{\left\langle#1, #2, #3\right\rangle}
 \newcommand{\ass}[2]{\left[ #1\mapsto#2 \right]}
+\newcommand{\eval}[1]{\left\llbracket #1 \right\rrbracket}
+% While syntax
+\newcommand{\While}[0]{\textbf{While}}
+\renewcommand{\while}[2]{\mbox{\textbf{while} } #1 \mbox{ \textbf{do} } #2}
+\newcommand{\If}[3]{\mbox{\textbf{if} } #1 \mbox{ \textbf{then} } #2 \mbox{ \textbf{else} } #3}
+\newcommand{\Skip}[0]{\mbox{\textbf{skip}}}
+\renewcommand{\=}[0]{:=}
+\renewcommand{\;}[0]{\mbox{; }}
+\newcommand{\eq}[0]{=}
+
+\setlength{\parindent}{0cm}
 
 \begin{document}
 \decp
