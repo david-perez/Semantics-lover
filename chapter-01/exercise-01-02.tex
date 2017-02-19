@@ -1,0 +1,49 @@
+\subsection{2}
+
+Assume that the initial value of the variable $x$ is $n$ and that the initial value of $y$ is $m$. Write a statement in $\While$ that assigns $z$ the value of $n$ to the power of $m$.\\
+
+Give a linear as well as a graphical representation of the abstract syntax.\\
+$$z \= 1\; \while{y > 0}{(z \= z * x\; y \= y - 1)}$$
+\begin{forest}
+[$S$
+    [$S$
+        [$z$]
+        [$\=$]
+        [$a$ [$1$]]
+    ]
+    [;]
+    [$S$
+        [\textbf{while}]
+        [$b$
+            [$\neg$]
+            [$b$
+                [$a$ [$y$]]
+                [$>$]
+                [$a$ [$0$]]
+            ]
+        ]
+        [\textbf{do}]
+        [$S$
+            [$S$
+                [$z$]
+                [$\=$]
+                [$a$
+                    [$a$ [$z$]]
+                    [$*$]
+                    [$a$ [$x$]]
+                ]
+            ]
+            [;]
+            [$S$
+                [$y$]
+                [$\=$]
+                [$a$
+                    [$a$ [$y$]]
+                    [$-$]
+                    [$a$ [$1$]]
+                ]
+            ]
+        ]
+    ]
+]
+\end{forest}

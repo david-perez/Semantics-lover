@@ -1,0 +1,11 @@
+\subsection{10}
+
+Prove that Table 1.2 defines a total function $\B$ in $\bexp \rightarrow (\state \rightarrow \T)$.\\
+
+We must follow the same steps that we used in exercise 8. For each $b \in \bexp$ and $s \in \state$ we should obtain only one result when we evaluate $b$ in $s$. First, we check the property for the basis elements and then for the composite elements:
+\begin{itemize}
+	\item If $b := true$, we have $\B\eval{b}s = tt$. Obviously, we obtain only one result. The same holds when $b := false$.
+	\item If $b := (a_1 = a_2)$ where $a_1, a_2 \in \aexp$, we must check whether or not $\A\eval{a1}s$ is equal to $\A\eval{a2}s$. Assuming that we have already prove that $\A$ is a total function, we have that the evaluation of $b$ in $s$ has only one result depending on s. We can use the same argument with $\le$.
+	\item If $b = \neg b_1$ where $b_1 \in \bexp$, $\B\eval{b_1}s$ could be $\Tt$ or $\ff$, but only one of them, because we suppose that the property holds for $b_1$. In this case, using the fifth rule, we have that $\B\eval{b}s$ maps to only one value (the opposite of $\B\eval{b_1}s$).
+	\item If $b = b_1 \wedge b_2$ where $b_1, b_2 \in \bexp$, we have $\B\eval{b_1}s = v_1$ and $\B\eval{b_1}s = v_2$ where $v_1$ and $v_2$ belong to $\T$ and are the only values returned by the evaluation of $b_1$ and $b_2$ in $s$. $\B\eval{b}s = \Tt$, if $v_1$ and $v_2$ are both $\Tt$, and $\B\eval{b}s = \ff$ otherwise. In both cases, there is only one possible value.
+\end{itemize}

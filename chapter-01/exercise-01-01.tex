@@ -1,0 +1,48 @@
+\subsection{1}
+
+The following is a statement in \While:
+$$y \= 1\; \while{\neg(x=1)}{(y \= y*x \; x \= x-1)}$$
+It computes the factorial of the initial value bound to x (provided that it is positive), and the result will be the final value of y. Draw a graphical representation of the abstract syntax tree.\\
+\begin{forest}
+[$S$
+ [$S$
+     [$y$]
+     [$\=$]
+     [$a$ [$1$]]
+ ]
+ [;]
+ [$S$
+     [\textbf{while}]
+     [$b$
+         [$\neg$]
+         [$b$
+             [$a$ [$x$]]
+             [$\eq$]
+             [$a$ [$1$]]
+         ]
+     ]
+     [\textbf{do}]
+     [$S$
+         [$S$
+             [$y$]
+             [$\=$]
+             [$a$
+                 [$a$ [$y$]]
+                 [$*$]
+                 [$a$ [$x$]]
+             ]
+         ]
+         [;]
+         [$S$
+             [$x$]
+             [$\=$]
+             [$a$
+                 [$a$ [$x$]]
+                 [$-$]
+                 [$a$ [$1$]]
+             ]
+         ]
+     ]
+ ]
+]
+\end{forest}

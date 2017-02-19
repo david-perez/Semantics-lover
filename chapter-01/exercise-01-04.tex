@@ -1,0 +1,14 @@
+\subsection{4}
+
+Suppose that the grammar for n had been
+$$n\space::= 0 \,|\, 1 \,|\, 0 \, n \,|\, 1 \, n$$
+Can you define $\N$ correctly in this case?\\
+
+Of course, we can. We define $\N$ as follows:
+\begin{align*}
+\N\eval{0} &= 0\\
+\N\eval{1} &= 1\\
+\N\eval{0\,n} &= \N\eval{n}\\
+\N\eval{1\,n} &= 2^{length(n)} + \N\eval{n}\\
+\end{align*}
+where $length(n)$ is the length of the numeral $n$ in digits.

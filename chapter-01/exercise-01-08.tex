@@ -1,0 +1,16 @@
+\subsection{8}
+
+Prove that the equations of Table 1.1 define a total function $\A$ in $\aexp \rightarrow (\state \rightarrow \Z$): First argue that it is sufficient to prove that for each $a \in \aexp$ and each $s \in \state$ there is exactly one value $v \in \Z$ such that $\A\eval{a}s = v$. Next use structural induction on the arithmetic expressions to prove that this is indeed the case.\\
+
+A total function is a function where each element in the domain is mapped to an element in the codomain. In this case, we need to prove that for each arithmetic expression we have a function that maps a state into a numeral, in other word, if we have $a \in \aexp$ and $s \in \state$ we need to prove that there is only one value that is the result of the evaluation of $a$ in $s$. We name this value $v$.\\
+
+In order to prove this result, we can use structural induction on the shape of the arithmetic expression. First, we check if the property holds for the basis elements:
+\begin{itemize}
+	\item If $a := n$ where $n \in \num$, we have $\A\eval{a}s = \N\eval{n}$ which depends only on $n$ and the function $\N$ which is a total function, so, there is no problem.
+	\item If $a := x$ where $x \in \var$, we have $\A\eval{a}s = s\,x$. $s$ is itself a total function that provides only one result for each variable, so, again, we have only one value.
+\end{itemize}
+Now, we try to prove it for the composite elements:
+\begin{itemize}
+	\item If $a := a_1 + a_2$ where $a_1, a_2 \in \aexp$, we have $\A\eval{a}s = \A\eval{a_1}s + \A\eval{a_2}s$ and, assuming that the property holds for $a1$ and $a2$, because they are the immediate constituents of $a$, and knowing that the addition is a total function itself, the property holds in this case.
+	\item The proof for $a := a_1 * a_2$ and $a := a_1 - a_2$ is analogous.
+\end{itemize}
